@@ -1,0 +1,78 @@
+#app {
+  .main-container {
+    min-height: 100%;
+    transition: margin-left 0.28s;
+    margin-left: @sideBarWidth;
+    position: relative;
+  }
+
+  .sidebar-container {
+    transition: width 0.28s;
+    width: @sideBarWidth !important;
+    height: 100%;
+    position: fixed;
+    font-size: 0px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+
+    .sider-scrollbar {
+      height: 100%;
+      overflow-x: hidden !important;
+      overflow-y: auto;
+    }
+
+    &.has-logo {
+      .sider-scrollbar {
+        height: calc(100% - 50px);
+      }
+    }
+
+    .sider-menu {
+      border: none;
+      height: 100%;
+      width: 100% !important;
+      overflow-y: auto;
+    }
+  }
+
+  .hideSidebar {
+    .sidebar-container {
+      width: @sideBarCollapsedWidth !important;
+    }
+    .main-container {
+      margin-left: @sideBarCollapsedWidth;
+    }
+    // menu collapsed reset
+    .app-starter-vue--menu-inline-collapsed {
+      .app-starter-vue--menu-item,
+      .app-starter-vue--menu-submenu > .app-starter-vue--menu-submenu-title {
+        padding: 0 18px !important;
+      }
+      .app-starter-vue--menu-item-group {
+        .app-starter-vue--menu-item-group-list {
+          .app-starter-vue--menu-item,
+          .app-starter-vue--menu-submenu
+            > .app-starter-vue--menu-submenu-title {
+            padding: 0 18px !important;
+          }
+        }
+      }
+    }
+  }
+
+  // breadcrumb
+  .app-breadcrumb {
+    .app-starter-vue--breadcrumb-link {
+      display: inline-block;
+      font-size: 14px;
+      margin-left: 8px;
+      .no-redirect {
+        color: #97a8be;
+        cursor: text;
+      }
+    }
+  }
+}
